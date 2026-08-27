@@ -30,7 +30,6 @@
         <li><a href="#why">为什么学</a></li>
         <li><a href="#roadmap">学习路线</a></li>
         <li><a href="#code">代码实战</a></li>
-        <li><a href="#tools">实用工具</a></li>
         <li><a href="#tips">避坑指南</a></li>
         <li><a href="#env">环境搭建</a></li>
         <li><a href="#resources">学习资源</a></li>
@@ -81,6 +80,57 @@
         <div class="stat">
           <span class="stat-num">100%</span>
           <span class="stat-label">免费开源</span>
+        </div>
+      </div>
+
+      <!-- Embedded Tools: Weather + Calendar -->
+      <div class="hero-tools reveal">
+        <!-- Weather Widget -->
+        <div class="tool-card weather-card">
+          <div class="tool-card-header">
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM10 15a5 5 0 100-10 5 5 0 000 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 15h2M19 15h2M12 6V4M5.6 8.6L4.5 7.5M18.4 8.6l1.1-1.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              实时天气
+            </h3>
+            <div class="weather-search-wrap">
+              <input type="text" id="weatherSearch" class="weather-search-input" placeholder="输入城市名" autocomplete="off">
+              <button id="weatherSearchBtn" class="weather-search-btn" aria-label="搜索">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="weather-display" id="weatherDisplay">
+            <div class="weather-loading">
+              <div class="weather-spinner"></div>
+              <p>正在获取天气数据…</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar Widget -->
+        <div class="tool-card calendar-card">
+          <div class="tool-card-header">
+            <h3>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/></svg>
+              日历
+            </h3>
+            <div class="calendar-nav">
+              <button id="calPrev" class="cal-nav-btn" aria-label="上个月">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <span id="calTitle" class="cal-title"></span>
+              <button id="calNext" class="cal-nav-btn" aria-label="下个月">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="calendar-body">
+            <div class="calendar-weekdays">
+              <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+            </div>
+            <div class="calendar-days" id="calDays"></div>
+          </div>
+          <div class="calendar-today-info" id="calTodayInfo"></div>
         </div>
       </div>
     </div>
@@ -698,68 +748,6 @@ todo.show()</code></pre>
     </div>
   </section>
 
-  <!-- ========== Tools: Weather + Calendar ========== -->
-  <section id="tools" class="section section-tools">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">TOOLS</span>
-        <h2 class="section-title">实用工具箱</h2>
-        <p class="section-desc">学习之余，查查天气、看看日历，合理安排学习时间。</p>
-      </div>
-      <div class="tools-grid">
-
-        <!-- Weather Widget -->
-        <div class="tool-card weather-card reveal">
-          <div class="tool-card-header">
-            <h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.5 19a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM10 15a5 5 0 100-10 5 5 0 000 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 15h2M19 15h2M12 6V4M5.6 8.6L4.5 7.5M18.4 8.6l1.1-1.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              实时天气
-            </h3>
-            <div class="weather-search-wrap">
-              <input type="text" id="weatherSearch" class="weather-search-input" placeholder="输入城市名（如：北京）" autocomplete="off">
-              <button id="weatherSearchBtn" class="weather-search-btn" aria-label="搜索">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="weather-display" id="weatherDisplay">
-            <div class="weather-loading">
-              <div class="weather-spinner"></div>
-              <p>正在获取天气数据…</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Calendar Widget -->
-        <div class="tool-card calendar-card reveal">
-          <div class="tool-card-header">
-            <h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/></svg>
-              日历
-            </h3>
-            <div class="calendar-nav">
-              <button id="calPrev" class="cal-nav-btn" aria-label="上个月">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-              <span id="calTitle" class="cal-title"></span>
-              <button id="calNext" class="cal-nav-btn" aria-label="下个月">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="calendar-body">
-            <div class="calendar-weekdays">
-              <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
-            </div>
-            <div class="calendar-days" id="calDays"></div>
-          </div>
-          <div class="calendar-today-info" id="calTodayInfo"></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ========== Tips ========== -->
   <section id="tips" class="section section-tips">
     <div class="container">
@@ -1002,7 +990,6 @@ python -c "print('Hello, Python!')"
             <a href="#why">为什么学 Python</a>
             <a href="#roadmap">学习路线图</a>
             <a href="#code">代码示例</a>
-            <a href="#tools">实用工具</a>
             <a href="#tips">避坑指南</a>
           </div>
           <div class="footer-col">
