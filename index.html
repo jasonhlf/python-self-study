@@ -1,0 +1,963 @@
+<!-- AI生成 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="从零开始学 Python 编程 - 专为编程小白设计的自学网站，包含完整学习路线、代码示例和实战指南">
+  <title>Python 小白自学指南 | 从零开始掌握编程</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== Navigation ========== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12 2v20M2 7l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <span>Python<span class="logo-accent">自学指南</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#why">为什么学</a></li>
+        <li><a href="#roadmap">学习路线</a></li>
+        <li><a href="#code">代码实战</a></li>
+        <li><a href="#tips">避坑指南</a></li>
+        <li><a href="#env">环境搭建</a></li>
+        <li><a href="#resources">学习资源</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== Hero ========== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        零基础友好 · 完全免费 · 随时开始
+      </div>
+      <h1 class="hero-title reveal">
+        从零开始<br>
+        <span class="gradient-text">掌握 Python 编程</span>
+      </h1>
+      <p class="hero-subtitle reveal">
+        专为编程小白设计的自学路线图。6 个阶段，从安装环境到写出第一个项目，
+        每一步都有清晰指引和可运行代码示例。
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#roadmap" class="btn btn-primary">
+          开始学习之旅
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#code" class="btn btn-secondary">查看代码示例</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num">6</span>
+          <span class="stat-label">学习阶段</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">代码示例</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">免费开源</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>向下滚动</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- ========== Why Python ========== -->
+  <section id="why" class="section section-why">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">WHY PYTHON</span>
+        <h2 class="section-title">为什么 Python 是小白的最佳选择？</h2>
+        <p class="section-desc">在所有编程语言中，Python 以"简洁易读"著称，是最接近人类语言的编程语言。</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="8" stroke="currentColor" stroke-width="2.5"/><path d="M16 20h16M16 28h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>语法简洁直观</h3>
+          <p>Python 的代码读起来就像英语句子。没有复杂的括号和分号，用缩进表示代码块，一眼就能看懂逻辑。</p>
+          <div class="why-code">print("Hello, World!")</div>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/><path d="M24 14v10l7 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>学习曲线平缓</h3>
+          <p>从打印一句话到写一个小工具，可能只需要一个下午。Python 让你在学习初期就能获得成就感。</p>
+          <div class="why-code">10 分钟写出第一个程序</div>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4l20 12v16L24 44 4 32V16L24 4z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2.5"/></svg>
+          </div>
+          <h3>应用领域广泛</h3>
+          <p>Web 开发、数据分析、人工智能、自动化办公、爬虫……学会 Python，打开无数可能。</p>
+          <div class="why-code">AI · 数据 · Web · 自动化</div>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M16 24c0-6 4-10 8-10s8 4 8 10-4 10-8 10-8-4-8-10z" stroke="currentColor" stroke-width="2.5"/><path d="M24 14v20M14 24h20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>社区庞大友好</h3>
+          <p>全球数百万开发者使用 Python。遇到任何问题，搜索引擎里都有答案，新手问题也不例外。</p>
+          <div class="why-code">StackOverflow 上有 200 万+ 回答</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Learning Roadmap ========== -->
+  <section id="roadmap" class="section section-roadmap">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">LEARNING PATH</span>
+        <h2 class="section-title">6 阶段学习路线图</h2>
+        <p class="section-desc">按顺序学习，每完成一个阶段就离目标更近一步。点击阶段卡片查看详细内容。</p>
+      </div>
+      <div class="roadmap-timeline">
+        <div class="roadmap-line"></div>
+
+        <div class="roadmap-item reveal" data-stage="1">
+          <div class="roadmap-marker">
+            <span class="marker-num">1</span>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-header">
+              <h3>环境搭建</h3>
+              <span class="roadmap-time">约 30 分钟</span>
+            </div>
+            <p>安装 Python 解释器和代码编辑器，写出你的第一行代码。</p>
+            <ul class="roadmap-topics">
+              <li>下载安装 Python 3.12+</li>
+              <li>安装 VS Code 编辑器</li>
+              <li>配置 Python 插件</li>
+              <li>运行 print("Hello, World!")</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-item reveal" data-stage="2">
+          <div class="roadmap-marker">
+            <span class="marker-num">2</span>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-header">
+              <h3>基础语法</h3>
+              <span class="roadmap-time">约 2-3 天</span>
+            </div>
+            <p>掌握变量、数据类型、输入输出等最基础的编程概念。</p>
+            <ul class="roadmap-topics">
+              <li>变量与赋值</li>
+              <li>字符串与格式化</li>
+              <li>数字与运算符</li>
+              <li>input() 与 print()</li>
+              <li>注释与代码规范</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-item reveal" data-stage="3">
+          <div class="roadmap-marker">
+            <span class="marker-num">3</span>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-header">
+              <h3>控制流程</h3>
+              <span class="roadmap-time">约 3-5 天</span>
+            </div>
+            <p>让程序具备判断和重复执行的能力，这是编程的核心逻辑。</p>
+            <ul class="roadmap-topics">
+              <li>if / elif / else 条件判断</li>
+              <li>for 循环遍历</li>
+              <li>while 循环</li>
+              <li>break 与 continue</li>
+              <li>嵌套循环与逻辑组合</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-item reveal" data-stage="4">
+          <div class="roadmap-marker">
+            <span class="marker-num">4</span>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-header">
+              <h3>数据结构</h3>
+              <span class="roadmap-time">约 5-7 天</span>
+            </div>
+            <p>学习 Python 中最常用的数据容器，掌握数据的组织方式。</p>
+            <ul class="roadmap-topics">
+              <li>列表 (list) 的增删改查</li>
+              <li>字典 (dict) 键值对</li>
+              <li>元组 (tuple) 与集合 (set)</li>
+              <li>列表推导式</li>
+              <li>字符串高级操作</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-item reveal" data-stage="5">
+          <div class="roadmap-marker">
+            <span class="marker-num">5</span>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-header">
+              <h3>函数与模块</h3>
+              <span class="roadmap-time">约 5-7 天</span>
+            </div>
+            <p>学会封装代码，让程序更简洁、可复用。这是走向"真正的程序员"的关键一步。</p>
+            <ul class="roadmap-topics">
+              <li>定义函数 def</li>
+              <li>参数与返回值</li>
+              <li>默认参数与关键字参数</li>
+              <li>导入标准库模块</li>
+              <li>异常处理 try/except</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-item reveal" data-stage="6">
+          <div class="roadmap-marker">
+            <span class="marker-num">6</span>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-header">
+              <h3>项目实战</h3>
+              <span class="roadmap-time">持续练习</span>
+            </div>
+            <p>用学到的知识做出完整的小项目，巩固所学，建立作品集。</p>
+            <ul class="roadmap-topics">
+              <li>猜数字游戏</li>
+              <li>简易计算器</li>
+              <li>待办事项管理器</li>
+              <li>文件批量重命名工具</li>
+              <li>天气查询小工具</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Code Examples ========== -->
+  <section id="code" class="section section-code">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">HANDS-ON</span>
+        <h2 class="section-title">代码实战示例</h2>
+        <p class="section-desc">从 Hello World 到实用小工具，每个示例都可以直接复制运行。选择主题查看代码。</p>
+      </div>
+
+      <div class="code-playground reveal">
+        <div class="code-tabs">
+          <button class="code-tab active" data-tab="hello">Hello World</button>
+          <button class="code-tab" data-tab="variable">变量与类型</button>
+          <button class="code-tab" data-tab="condition">条件判断</button>
+          <button class="code-tab" data-tab="loop">循环</button>
+          <button class="code-tab" data-tab="list">列表操作</button>
+          <button class="code-tab" data-tab="dict">字典操作</button>
+          <button class="code-tab" data-tab="function">函数</button>
+          <button class="code-tab" data-tab="file">文件读写</button>
+          <button class="code-tab" data-tab="project">实战项目</button>
+        </div>
+
+        <div class="code-content">
+          <div class="code-panel active" data-panel="hello">
+            <div class="code-meta">
+              <h4>第一个程序：Hello World</h4>
+              <p>每个程序员的第一行代码。在 Python 中，只需要一行。</p>
+            </div>
+            <pre><code class="language-python"># 你的第一个 Python 程序
+print("Hello, World!")
+
+# 带变量名的问候
+name = "小明"
+print(f"你好，{name}！欢迎学习 Python！")
+
+# 多行输出
+print("=" * 30)
+print("  Python 编程之旅开始啦！")
+print("=" * 30)</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>Hello, World!
+你好，小明！欢迎学习 Python！
+==============================
+  Python 编程之旅开始啦！
+==============================</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="variable">
+            <div class="code-meta">
+              <h4>变量与数据类型</h4>
+              <p>Python 会自动判断数据类型，你不需要提前声明。</p>
+            </div>
+            <pre><code class="language-python"># 整数 (int)
+age = 25
+print(f"年龄：{age}，类型：{type(age)}")
+
+# 浮点数 (float)
+height = 1.75
+print(f"身高：{height}米，类型：{type(height)}")
+
+# 字符串 (str)
+name = "张三"
+print(f"姓名：{name}，类型：{type(name)}")
+
+# 布尔值 (bool)
+is_student = True
+print(f"是学生吗：{is_student}，类型：{type(is_student)}")
+
+# 类型转换
+str_number = "123"
+real_number = int(str_number)
+print(f"转换后：{real_number + 100}")  # 输出 223</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>年龄：25，类型：&lt;class 'int'&gt;
+身高：1.75米，类型：&lt;class 'float'&gt;
+姓名：张三，类型：&lt;class 'str'&gt;
+是学生吗：True，类型：&lt;class 'bool'&gt;
+转换后：223</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="condition">
+            <div class="code-meta">
+              <h4>条件判断：if / elif / else</h4>
+              <p>让程序根据不同情况做出不同响应。</p>
+            </div>
+            <pre><code class="language-python"># 成绩等级评定
+score = int(input("请输入考试成绩（0-100）："))
+
+if score >= 90:
+    grade = "优秀"
+elif score >= 80:
+    grade = "良好"
+elif score >= 70:
+    grade = "中等"
+elif score >= 60:
+    grade = "及格"
+else:
+    grade = "不及格"
+
+print(f"你的成绩等级是：{grade}")
+
+# 判断闰年
+year = 2024
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} 年是闰年")
+else:
+    print(f"{year} 年不是闰年")</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果（输入 85）：</span>
+              <pre>你的成绩等级是：良好
+2024 年是闰年</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="loop">
+            <div class="code-meta">
+              <h4>循环：for 与 while</h4>
+              <p>让程序自动重复执行，告别手动复制粘贴。</p>
+            </div>
+            <pre><code class="language-python"># for 循环：打印九九乘法表
+for i in range(1, 10):
+    for j in range(1, i + 1):
+        print(f"{j}x{i}={i*j}", end="\t")
+    print()  # 换行
+
+# while 循环：猜数字游戏
+import random
+target = random.randint(1, 100)
+attempts = 0
+
+print("猜一个 1-100 之间的数字！")
+while True:
+    guess = int(input("你的猜测："))
+    attempts += 1
+    if guess < target:
+        print("太小了，再大一点！")
+    elif guess > target:
+        print("太大了，再小一点！")
+    else:
+        print(f"恭喜！你用了 {attempts} 次猜对了！")
+        break</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果（乘法表部分）：</span>
+              <pre>1x1=1
+1x2=2	2x2=4
+1x3=3	2x3=6	3x3=9
+...（以此类推）</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="list">
+            <div class="code-meta">
+              <h4>列表操作：增删改查</h4>
+              <p>列表是 Python 中最常用的数据结构，类似购物清单。</p>
+            </div>
+            <pre><code class="language-python"># 创建购物清单
+shopping = ["苹果", "香蕉", "牛奶", "面包"]
+print(f"购物清单：{shopping}")
+
+# 添加商品
+shopping.append("鸡蛋")
+shopping.insert(0, "蔬菜")  # 插入到开头
+print(f"添加后：{shopping}")
+
+# 删除商品
+shopping.remove("香蕉")  # 按值删除
+popped = shopping.pop()   # 删除最后一个
+print(f"删除后：{shopping}，移除了：{popped}")
+
+# 列表推导式：生成平方数列表
+squares = [x ** 2 for x in range(1, 11)]
+print(f"1-10 的平方：{squares}")
+
+# 排序与统计
+numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]
+numbers.sort()
+print(f"排序后：{numbers}")
+print(f"最大值：{max(numbers)}，最小值：{min(numbers)}，平均值：{sum(numbers)/len(numbers)}")</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>购物清单：['苹果', '香蕉', '牛奶', '面包']
+添加后：['蔬菜', '苹果', '香蕉', '牛奶', '面包', '鸡蛋']
+删除后：['蔬菜', '苹果', '牛奶', '面包']，移除了：鸡蛋
+1-10 的平方：[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+排序后：[1, 1, 2, 3, 3, 4, 5, 5, 6, 9]
+最大值：9，最小值：1，平均值：3.9</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="dict">
+            <div class="code-meta">
+              <h4>字典操作：键值对存储</h4>
+              <p>字典就像通讯录，用"名字"查找"电话号码"。</p>
+            </div>
+            <pre><code class="language-python"># 学生信息字典
+student = {
+    "name": "李四",
+    "age": 20,
+    "major": "计算机科学",
+    "courses": ["Python", "数据结构", "算法"]
+}
+
+# 访问'数据
+print(f"姓名：{student['name']}")
+print(f"课程数：{len(student['courses'])}")
+
+# 添加和修改
+student["email"] = "lisi@example.com"  # 新增
+student["age"] = 21                     # 修改
+print(f"更新后：{student}")
+
+# 遍历字典
+print("\n学生信息：")
+for key, value in student.items():
+    print(f"  {key}: {value}")
+
+# 统计单词频率
+text = "the quick brown fox jumps over the lazy dog the fox"
+word_count = {}
+for word in text.split():
+    word_count[word] = word_count.get(word, 0) + 1
+print(f"\n词频统计：{word_count}")</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>姓名：李四
+课程数：3
+
+学生信息：
+  name: 李四
+  age: 21
+  major: 计算机科学
+  courses: ['Python', '数据结构', '算法']
+  email: lisi@example.com
+
+词频统计：{'the': 3, 'quick': 1, 'brown': 1, ...}</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="function">
+            <div class="code-meta">
+              <h4>函数：代码的积木块</h4>
+              <p>把重复的代码封装成函数，一次编写，多次调用。</p>
+            </div>
+            <pre><code class="language-python"># 定义一个计算 BMI 的函数
+def calc_bmi(weight, height):
+    """计算 BMI 指数
+    weight: 体重(kg)
+    height: 身高(m)
+    """
+    bmi = weight / (height ** 2)
+    return round(bmi, 1)
+
+# 判断 BMI 等级
+def bmi_category(bmi):
+    if bmi < 18.5:
+        return "偏瘦"
+    elif bmi < 24:
+        return "正常"
+    elif bmi < 28:
+        return "偏胖"
+    else:
+        return "肥胖"
+
+# 使用函数
+weight = 70
+height = 1.75
+bmi = calc_bmi(weight, height)
+category = bmi_category(bmi)
+print(f"BMI: {bmi}，等级：{category}")
+
+# 带默认参数的函数
+def greet(name, greeting="你好"):
+    return f"{greeting}，{name}！"
+
+print(greet("王五"))
+print(greet("赵六", "早上好"))
+
+# 可变参数
+def sum_all(*numbers):
+    return sum(numbers)
+
+print(f"总和：{sum_all(1, 2, 3, 4, 5)}")</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>BMI: 22.9，等级：正常
+你好，王五！
+早上好，赵六！
+总和：15</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="file">
+            <div class="code-meta">
+              <h4>文件读写：数据持久化</h4>
+              <p>学会读写文件，你的程序就能保存数据了。</p>
+            </div>
+            <pre><code class="language-python"># 写入文件
+with open("diary.txt", "w", encoding="utf-8") as f:
+    f.write("2024-01-15 今天学了 Python 文件操作\n")
+    f.write("感觉编程越来越有趣了！\n")
+
+# 读取文件
+with open("diary.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+    print("日记内容：")
+    print(content)
+
+# 逐行读取
+with open("diary.txt", "r", encoding="utf-8") as f:
+    for i, line in enumerate(f, 1):
+        print(f"第 {i} 行：{line.strip()}")
+
+# 追加内容
+with open("diary.txt", "a", encoding="utf-8") as f:
+    f.write("2024-01-16 今天学了函数和模块\n")
+
+# 异常处理：安全地打开文件
+try:
+    with open("not_exist.txt", "r") as f:
+        data = f.read()
+except FileNotFoundError:
+    print("文件不存在，请检查路径！")
+except Exception as e:
+    print(f"发生错误：{e}")</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>日记内容：
+2024-01-15 今天学了 Python 文件操作
+感觉编程越来越有趣了！
+第 1 行：2024-01-15 今天学了 Python 文件操作
+第 2 行：感觉编程越来越有趣了！
+文件不存在，请检查路径！</pre>
+            </div>
+          </div>
+
+          <div class="code-panel" data-panel="project">
+            <div class="code-meta">
+              <h4>实战项目：简易待办事项管理器</h4>
+              <p>综合运用前面学到的所有知识，做一个实用小工具。</p>
+            </div>
+            <pre><code class="language-python">"""待办事项管理器
+功能：添加、查看、完成、删除任务
+"""
+
+import json
+from datetime import datetime
+
+class TodoManager:
+    def __init__(self):
+        self.todos = []
+        self.load()
+
+    def add(self, task):
+        """添加新任务"""
+        item = {
+            "task": task,
+            "done": False,
+            "time": datetime.now().strftime("%Y-%m-%d %H:%M")
+        }
+        self.todos.append(item)
+        self.save()
+        print(f"已添加：{task}")
+
+    def show(self):
+        """显示所有任务"""
+        if not self.todos:
+            print("暂无任务，添加一个吧！")
+            return
+        print("\n===== 待办事项 =====")
+        for i, item in enumerate(self.todos, 1):
+            status = "[完成]" if item["done"] else "[待办]"
+            print(f"{i}. {status} {item['task']} ({item['time']})")
+        print("===================\n")
+
+    def done(self, index):
+        """标记任务完成"""
+        if 1 <= index <= len(self.todos):
+            self.todos[index - 1]["done"] = True
+            self.save()
+            print(f"已完成：{self.todos[index-1]['task']}")
+
+    def save(self):
+        """保存到文件"""
+        with open("todos.json", "w", encoding="utf-8") as f:
+            json.dump(self.todos, f, ensure_ascii=False, indent=2)
+
+    def load(self):
+        """从文件加载"""
+        try:
+            with open("todos.json", "r", encoding="utf-8") as f:
+                self.todos = json.load(f)
+        except FileNotFoundError:
+            self.todos = []
+
+# 使用示例
+todo = TodoManager()
+todo.add("学习 Python 基础语法")
+todo.add("完成第一个小项目")
+todo.show()
+todo.done(1)
+todo.show()</code></pre>
+            <div class="code-output">
+              <span class="output-label">运行结果：</span>
+              <pre>已添加：学习 Python 基础语法
+已添加：完成第一个小项目
+
+===== 待办事项 =====
+1. [待办] 学习 Python 基础语法 (2024-01-15 10:30)
+2. [待办] 完成第一个小项目 (2024-01-15 10:30)
+===================
+
+已完成：学习 Python 基础语法
+
+===== 待办事项 =====
+1. [完成] 学习 Python 基础语法 (2024-01-15 10:30)
+2. [待办] 完成第一个小项目 (2024-01-15 10:30)
+===================</pre>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Tips ========== -->
+  <section id="tips" class="section section-tips">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">PRO TIPS</span>
+        <h2 class="section-title">小白避坑指南</h2>
+        <p class="section-desc">过来人的经验，帮你少走弯路，更快上手。</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card reveal">
+          <div class="tip-num">01</div>
+          <h3>不要只看不练</h3>
+          <p>看懂代码和写出代码是两回事。每个示例都要亲手敲一遍，改改参数看看效果。编程是手艺活，练出来的。</p>
+        </div>
+        <div class="tip-card reveal">
+          <div class="tip-num">02</div>
+          <h3>善用 print() 调试</h3>
+          <p>程序结果不对？在关键位置加 print() 看看变量的值。这是最简单也最有效的调试方法，新手必会。</p>
+        </div>
+        <div class="tip-card reveal">
+          <div class="tip-num">03</div>
+          <h3>学会看报错信息</h3>
+          <p>报错不可怕，它在帮你定位问题。重点看最后一行：错误类型 + 错误位置。复制到搜索引擎就能找到答案。</p>
+        </div>
+        <div class="tip-card reveal">
+          <div class="tip-num">04</div>
+          <h3>从小项目开始</h3>
+          <p>不要一上来就想做大事。先写个计算器，再写个猜数字游戏，循序渐进。完成小项目的成就感是持续学习的动力。</p>
+        </div>
+        <div class="tip-card reveal">
+          <div class="tip-num">05</div>
+          <h3>每天写一点代码</h3>
+          <p>每天 30 分钟比周末突击 5 小时效果好得多。编程需要建立"肌肉记忆"，持续接触比集中突击更有效。</p>
+        </div>
+        <div class="tip-card reveal">
+          <div class="tip-num">06</div>
+          <h3>不懂就搜，但先自己想</h3>
+          <p>遇到问题先自己思考 5 分钟，实在想不出来再搜索。直接搜答案会跳过思考过程，不利于成长。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Environment Setup ========== -->
+  <section id="env" class="section section-env">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">SETUP</span>
+        <h2 class="section-title">开发环境搭建</h2>
+        <p class="section-desc">三步搞定，开始你的编程之旅。</p>
+      </div>
+      <div class="env-steps">
+        <div class="env-step reveal">
+          <div class="env-step-header">
+            <span class="env-step-num">Step 1</span>
+            <h3>安装 Python</h3>
+          </div>
+          <div class="env-step-body">
+            <p>访问官网下载最新版 Python 3.12+：</p>
+            <div class="env-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>
+            </div>
+            <div class="env-note">
+              <strong>重要：</strong>安装时勾选 "Add Python to PATH"，这步很多人漏掉导致后面找不到 Python。
+            </div>
+          </div>
+        </div>
+
+        <div class="env-step reveal">
+          <div class="env-step-header">
+            <span class="env-step-num">Step 2</span>
+            <h3>安装 VS Code</h3>
+          </div>
+          <div class="env-step-body">
+            <p>下载微软的免费代码编辑器 Visual Studio Code：</p>
+            <div class="env-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">code.visualstudio.com</a>
+            </div>
+            <p>安装后在扩展商店搜索并安装 <strong>Python</strong> 扩展（微软官方出品）。</p>
+          </div>
+        </div>
+
+        <div class="env-step reveal">
+          <div class="env-step-header">
+            <span class="env-step-num">Step 3</span>
+            <h3>验证安装</h3>
+          </div>
+          <div class="env-step-body">
+            <p>打开终端（Windows 按 Win+R 输入 cmd），输入：</p>
+            <pre><code class="language-bash">python --version
+# 应该输出类似：Python 3.12.1
+
+# 写第一个程序
+python -c "print('Hello, Python!')"
+# 应该输出：Hello, Python!</code></pre>
+            <p>看到输出就说明环境搭建成功！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Resources ========== -->
+  <section id="resources" class="section section-resources">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">RESOURCES</span>
+        <h2 class="section-title">推荐学习资源</h2>
+        <p class="section-desc">精选免费资源，配合本指南使用效果更佳。</p>
+      </div>
+      <div class="resources-grid">
+        <div class="resource-card reveal">
+          <div class="resource-type">官方文档</div>
+          <h3>Python 官方教程</h3>
+          <p>最权威的入门教程，由 Python 官方维护，适合系统学习。</p>
+          <a href="https://docs.python.org/zh-cn/3/tutorial/" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">在线练习</div>
+          <h3>菜鸟教程 Python</h3>
+          <p>中文教程，每节都有在线编辑器，可以直接在浏览器里运行代码。</p>
+          <a href="https://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频课程</div>
+          <h3>廖雪峰 Python 教程</h3>
+          <p>知名中文 Python 教程，讲解清晰，适合零基础入门。</p>
+          <a href="https://www.liaoxuefeng.com/wiki/1016959666939780" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">互动学习</div>
+          <h3>Codecademy Python</h3>
+          <p>在浏览器中边学边练，互动式编程学习平台。</p>
+          <a href="https://www.codecademy.com/learn/learn-python-3" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">书籍推荐</div>
+          <h3>《Python 编程：从入门到实践》</h3>
+          <p>最受欢迎的 Python 入门书，从基础语法到项目实战，循序渐进。</p>
+          <a href="/" class="resource-link">
+            各大书店有售
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">社区论坛</div>
+          <h3>Stack Overflow</h3>
+          <p>全球最大的编程问答社区，遇到问题在这里搜索或提问。</p>
+          <a href="https://stackoverflow.com/questions/tagged/python" target="_blank" rel="noopener" class="resource-link">
+            前往提问
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频教程</div>
+          <h3>华为云：Python 编程创造营</h3>
+          <p>华为云官方 Python 学习活动，涵盖基础语法、高级语法、面向对象编程等，金牌讲师在线教学，直播+论坛答疑，含免费云资源实操。</p>
+          <a href="https://developer.huaweicloud.com/activity/python_class.html" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频教程</div>
+          <h3>华为云：Python 学习路线</h3>
+          <p>华为云开发者中心官方 Python 全阶段学习路线，从基础入门到进阶实战，配套课程、实训和推荐书籍，系统化学习路径。</p>
+          <a href="https://developer.huaweicloud.com/resource/roadmap/python.html" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频教程</div>
+          <h3>华为人才在线：Python 编程基础</h3>
+          <p>华为官方在线 Python 基础课程，介绍 Python 的前世今生、开发环境搭建、数据类型与控制流语句，适合零基础入门。</p>
+          <a href="https://e.huawei.com/cn/talent/outPage/#/sxz-course/home?courseId=3mCm7X8-UyWyS6pioCSJeUI0yFo" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频教程（外网）</div>
+          <h3>B站：黑马程序员 Python 入门</h3>
+          <p>B站热门 Python 入门全套视频教程，从零基础到实战项目，讲解通俗易懂，适合完全零基础的小白。（需外网访问）</p>
+          <a href="https://www.bilibili.com/video/BV1qW4y1a7bU" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频教程（外网）</div>
+          <h3>B站：莫烦 Python 教程</h3>
+          <p>莫烦 Python 系列视频教程，涵盖基础语法、数据处理、机器学习等，短小精悍，适合快速入门。（需外网访问）</p>
+          <a href="https://www.bilibili.com/video/BV1Ex411x7nh" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="resource-card reveal">
+          <div class="resource-type">视频教程（外网）</div>
+          <h3>YouTube：Corey Schafer Python</h3>
+          <p>YouTube 上最受欢迎的 Python 教程系列之一，涵盖基础到进阶，英文讲解配代码实操，适合有一定英语基础的学习者。（需外网访问）</p>
+          <a href="https://www.youtube.com/watch?v=YYXdXT2vM0" target="_blank" rel="noopener" class="resource-link">
+            前往学习
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 2v20M2 7l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Python 自学指南</span>
+          </div>
+          <p>专为编程小白设计的学习路线图。坚持每天练习，你一定能学会。</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>学习内容</h4>
+            <a href="#why">为什么学 Python</a>
+            <a href="#roadmap">学习路线图</a>
+            <a href="#code">代码示例</a>
+            <a href="#tips">避坑指南</a>
+          </div>
+          <div class="footer-col">
+            <h4>快速开始</h4>
+            <a href="#env">环境搭建</a>
+            <a href="#resources">学习资源</a>
+            <a href="#hero">回到顶部</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>用 Python 改变世界，从第一行代码开始。</p>
+        <p class="footer-copy">本页面为学习参考用途，所有示例代码均可自由使用。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== Scripts ========== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
