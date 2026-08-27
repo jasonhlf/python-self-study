@@ -240,7 +240,8 @@ img {
   position: relative;
   z-index: 1;
   text-align: center;
-  max-width: 960px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .hero-badge {
@@ -378,17 +379,23 @@ img {
   background: var(--color-border);
 }
 
-/* ========== Hero Embedded Tools ========== */
-.hero-tools {
+/* ========== Hero Three-Column Layout ========== */
+.hero-layout {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 760px;
-  margin: 40px auto 0;
+  grid-template-columns: 280px 1fr 280px;
+  gap: 32px;
+  align-items: center;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.hero-side {
   text-align: left;
 }
 
-.hero-tools .tool-card {
+.hero-side .tool-card {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -396,9 +403,10 @@ img {
   border-radius: var(--radius-lg);
   padding: 20px;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-.hero-tools .tool-card:hover {
+.hero-side .tool-card:hover {
   box-shadow: var(--shadow-md);
   border-color: var(--color-primary-light);
 }
@@ -1557,9 +1565,11 @@ img {
     padding: 14px;
   }
 
-  .hero-tools {
+  .hero-layout {
     grid-template-columns: 1fr;
-    max-width: 360px;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .weather-search-input {
