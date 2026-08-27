@@ -1002,6 +1002,325 @@ img {
   color: var(--color-primary-dark);
 }
 
+/* ========== Tools: Weather + Calendar ========== */
+.section-tools {
+  background: var(--color-white);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.tool-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: var(--transition);
+}
+
+.tool-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+}
+
+.tool-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tool-card-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.tool-card-header h3 svg {
+  color: var(--color-primary);
+}
+
+/* --- Weather Widget --- */
+.weather-search-wrap {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.weather-search-input {
+  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition-fast);
+  width: 160px;
+}
+
+.weather-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(55, 118, 171, 0.1);
+}
+
+.weather-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.weather-search-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+.weather-display {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.weather-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  animation: fade-in 0.4s ease;
+}
+
+.weather-location {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.weather-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.weather-temp {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.weather-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-top: 4px;
+}
+
+.weather-details {
+  display: flex;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  justify-content: center;
+}
+
+.weather-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.weather-detail-label {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+.weather-detail-value {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.weather-error {
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* --- Calendar Widget --- */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cal-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: var(--transition-fast);
+}
+
+.cal-nav-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.cal-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  min-width: 120px;
+  text-align: center;
+}
+
+.calendar-body {
+  margin-top: 8px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  padding: 6px 0;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  cursor: default;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.cal-day:hover {
+  background: rgba(55, 118, 171, 0.08);
+}
+
+.cal-day.other-month {
+  color: var(--color-border);
+}
+
+.cal-day.today {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.cal-day.today:hover {
+  background: var(--color-primary-dark);
+}
+
+.cal-day.weekend {
+  color: #ef4444;
+}
+
+.cal-day.other-month.weekend {
+  color: rgba(239, 68, 68, 0.3);
+}
+
+.calendar-today-info {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.calendar-today-info strong {
+  color: var(--color-primary);
+}
+
 /* ========== Footer ========== */
 .footer {
   background: var(--color-darker);
@@ -1186,6 +1505,14 @@ img {
 
   .code-panel pre {
     padding: 14px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-search-input {
+    width: 120px;
   }
 
   .footer-content {
