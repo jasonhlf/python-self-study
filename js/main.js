@@ -281,7 +281,7 @@
         // Step 2: Fetch weather - with timeout
         var weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude=' + loc.latitude +
           '&longitude=' + loc.longitude +
-          '¤t=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m' +
+          '&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m' +
           '&timezone=auto';
 
         return fetchWithTimeout(weatherUrl, 8000)
