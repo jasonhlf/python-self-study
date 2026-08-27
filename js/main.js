@@ -218,7 +218,18 @@
   }
 
   function renderWeatherError(msg) {
-    weatherDisplay.innerHTML = '<div class="weather-error">' + msg + '</div>';
+    weatherDisplay.innerHTML =
+      '<div class="weather-error">' +
+        '<p>' + msg + '</p>' +
+        '<button class="weather-retry-btn" id="weatherRetryBtn">点击重试</button>' +
+      '</div>';
+    var retryBtn = document.getElementById('weatherRetryBtn');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', function () {
+        var city = weatherSearch.value.trim() || '深圳';
+        fetchWeather(city);
+      });
+    }
   }
 
   function renderWeather(data, locationName) {
@@ -252,22 +263,32 @@
   function fetchWeather(cityName) {
     renderWeatherLoading();
 
-    // Step 1: Geocoding
-    fetch('https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(cityName) + '&count=1&language=zh')
-      .then(function (res) { return res.json(); })
+    // Step 1: Geocoding - with timeout
+    var geoUrl = 'https://geocoding-api.open-meteo.com/v1/search?name=' +
+      encodeURIComponent(cityName) + '&count=1&language=zh&format=json';
+
+    fetchWithTimeout(geoUrl, 8000)
+      .then(function (res) {
+        if (!res.ok) throw new Error('Geocoding API error: ' + res.status);
+        return res.json();
+      })
       .then(function (geoData) {
         if (!geoData.results || geoData.results.length === 0) {
           renderWeatherError('未找到城市「' + cityName + '」，请检查城市名');
           return null;
         }
         var loc = geoData.results[0];
-        // Step 2: Fetch weather
-        return fetch(
-          'https://api.open-meteo.com/v1/forecast?latitude=' + loc.latitude +
+        // Step 2: Fetch weather - with timeout
+        var weatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude=' + loc.latitude +
           '&longitude=' + loc.longitude +
-          '¤t=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m'
-        )
-          .then(function (res) { return res.json(); })
+          '¤t=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m' +
+          '&timezone=auto';
+
+        return fetchWithTimeout(weatherUrl, 8000)
+          .then(function (res) {
+            if (!res.ok) throw new Error('Weather API error: ' + res.status);
+            return res.json();
+          })
           .then(function (weatherData) {
             var displayName = loc.name;
             if (loc.admin1 && loc.admin1 !== loc.name) {
@@ -276,13 +297,40 @@
             renderWeather(weatherData, displayName);
           });
       })
-      .catch(function () {
-        renderWeatherError('获取天气数据失败，请稍后重试');
+      .catch(function (err) {
+        var msg = '获取天气数据失败，请稍后重试';
+        if (err && err.name === 'AbortError') {
+          msg = '请求超时，请检查网络后重试';
+        }
+        renderWeatherError(msg);
       });
   }
 
-  // Default city
-  fetchWeather('深圳');
+  // Fetch with timeout helper
+  function fetchWithTimeout(url, ms) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, ms);
+    return fetch(url, { signal: controller.signal, mode: 'cors' })
+      .finally(function () { clearTimeout(timer); });
+  }
+
+  // Default city - with auto-retry
+  var weatherRetryCount = 0;
+  function fetchWeatherWithRetry(city) {
+    fetchWeather(city);
+  }
+  fetchWeatherWithRetry('深圳');
+
+  // Auto-retry once if initial load fails
+  var origRenderError = renderWeatherError;
+  renderWeatherError = function (msg) {
+    if (weatherRetryCount < 1 && msg.indexOf('未找到') === -1) {
+      weatherRetryCount++;
+      setTimeout(function () { fetchWeather('深圳'); }, 2000);
+      return;
+    }
+    origRenderError(msg);
+  };
 
   // Search button
   weatherSearchBtn.addEventListener('click', function () {
